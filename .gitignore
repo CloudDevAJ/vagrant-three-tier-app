@@ -1,0 +1,13 @@
+# Vagrant
+.vagrant/
+
+# Python
+__pycache__/
+*.pyc
+
+# Environment files
+.env
+
+# OS files
+Thumbs.db
+.DS_Store
