@@ -32,3 +32,27 @@ The main goals of this project are to:
 - Practice Linux networking and service configuration
 - Deploy a Flask application
 - Connect the application to a database server
+
+
+## How the Three-Tier Architecture Works
+
+This project uses Vagrant and VirtualBox to create three separate Linux virtual machines, each responsible for a different part of the application.
+
+### 1. Web Server
+The web server receives HTTP requests from users and forwards application requests to the Flask server.
+
+### 2. Application Server
+The application server runs a Python Flask application. It processes incoming requests, handles application logic, and communicates with the database server.
+
+### 3. Database Server
+The database server stores application data using MySQL. It runs separately from the web and application servers.
+
+### Communication Flow
+
+Browser → Web Server → Flask Application → MySQL Database
+
+### Why Use Three Tiers?
+
+Separating the application into three tiers makes it easier to manage each component independently.
+
+It also demonstrates how multiple virtual machines communicate over a private network and how Vagrant can automate the creation of a multi-server environment.
