@@ -56,3 +56,61 @@ Browser → Web Server → Flask Application → MySQL Database
 Separating the application into three tiers makes it easier to manage each component independently.
 
 It also demonstrates how multiple virtual machines communicate over a private network and how Vagrant can automate the creation of a multi-server environment.
+
+
+## Prerequisites
+
+Before running this project, ensure the following tools are installed:
+
+- Oracle VirtualBox
+- HashiCorp Vagrant
+- Git
+- A computer with hardware virtualization enabled
+
+### Virtual Machine Requirements
+
+The environment consists of three Ubuntu Linux virtual machines.
+
+Each VM is configured with:
+- 2 GB RAM
+- 2 virtual CPUs
+
+The complete environment requires approximately 6 GB of allocated VM memory, plus additional memory for the host operating system.
+
+### Getting Started
+
+Clone the repository:
+
+```bash
+git clone https://github.com/YOUR-USERNAME/vagrant-three-tier-app.git
+cd vagrant-three-tier-app
+```
+
+Verify Vagrant is installed:
+
+```bash
+vagrant --version
+```
+
+Validate the configuration:
+
+```bash
+vagrant validate
+```
+
+Start the environment:
+
+```bash
+vagrant up
+```
+
+Check VM status:
+
+```bash
+vagrant status
+```
+
+See `docs/testing.md` for the deployment verification checklist.
+
+**Note:** The project currently uses the `hashicorp/bionic64` Ubuntu 18.04 box. This is an older Ubuntu release and should be treated as a lab environment rather than a production-ready deployment.
+
