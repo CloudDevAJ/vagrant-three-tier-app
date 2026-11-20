@@ -82,7 +82,7 @@ The complete environment requires approximately 6 GB of allocated VM memory, plu
 Clone the repository:
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/vagrant-three-tier-app.git
+git clone https://github.com/CloudDevAJ/vagrant-three-tier-app.git
 cd vagrant-three-tier-app
 ```
 
@@ -113,4 +113,28 @@ vagrant status
 See `docs/testing.md` for the deployment verification checklist.
 
 **Note:** The project currently uses the `hashicorp/bionic64` Ubuntu 18.04 box. This is an older Ubuntu release and should be treated as a lab environment rather than a production-ready deployment.
+
+
+## Project Limitations
+
+This project was developed as a local virtualization lab to demonstrate three-tier architecture and automated virtual machine provisioning.
+
+The current implementation has several limitations:
+
+- **Local environment:** The infrastructure runs on VirtualBox rather than a cloud platform.
+- **Resource requirements:** Three virtual machines require sufficient CPU, memory, and disk space on the host computer.
+- **Older operating system:** The project uses Ubuntu 18.04 (`hashicorp/bionic64`), which is no longer suitable as a default choice for new production deployments.
+- **Single instance per tier:** Each tier runs on one virtual machine, so the architecture does not provide high availability.
+- **Manual deployment:** Vagrant automates VM provisioning, but the project does not currently include a CI/CD deployment pipeline.
+
+### Planned Improvements
+
+Future versions could explore:
+
+- Upgrading to a supported Ubuntu release.
+- Containerizing the application with Docker.
+- Adding automated configuration testing.
+- Implementing monitoring and logging.
+- Deploying a similar architecture on AWS.
+
 
