@@ -138,3 +138,32 @@ Future versions could explore:
 - Deploying a similar architecture on AWS.
 
 
+## Architecture Diagram
+
+The application follows a three-tier architecture using three Linux virtual machines managed through Vagrant and VirtualBox.
+
+```mermaid
+flowchart TD
+    User["User / Web Browser"]
+
+    subgraph Vagrant["Vagrant + VirtualBox Environment"]
+        Web["Web Server<br/>192.168.56.10<br/>Apache"]
+        App["Application Server<br/>192.168.56.11<br/>Python Flask"]
+        DB[("Database Server<br/>192.168.56.12<br/>MySQL")]
+    end
+
+    User -->|"HTTP - Port 8080 on host"| Web
+    Web -->|"HTTP - Port 5000"| App
+    App -->|"Database Connection"| DB
+```
+
+### Architecture Overview
+
+- **Web Tier:** Receives user requests and forwards application traffic to the Flask backend.
+- **Application Tier:** Processes requests using Python Flask and communicates with the database.
+- **Database Tier:** Stores application data using MySQL.
+- **Networking:** The three virtual machines communicate through a private VirtualBox network.
+- **Provisioning:** Vagrant uses shell scripts to automate virtual machine configuration.
+
+The environment is intended for local development and learning rather than production deployment.
+
